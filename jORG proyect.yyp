@@ -35,12 +35,16 @@
   },
   "name":"jORG proyect",
   "resources":[
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"ob_player","path":"objects/ob_player/ob_player.yy",},},
+    {"id":{"name":"ob_plwall","path":"objects/ob_plwall/ob_plwall.yy",},},
+    {"id":{"name":"Test_Room","path":"rooms/Test_Room/Test_Room.yy",},},
+    {"id":{"name":"sp_player","path":"sprites/sp_player/sp_player.yy",},},
+    {"id":{"name":"sp_plwall","path":"sprites/sp_plwall/sp_plwall.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"Test_Room","path":"rooms/Test_Room/Test_Room.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
