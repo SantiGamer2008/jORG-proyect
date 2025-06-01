@@ -35,6 +35,7 @@
   },
   "name":"jORG proyect",
   "resources":[
+    {"id":{"name":"ob_camera","path":"objects/ob_camera/ob_camera.yy",},},
     {"id":{"name":"ob_player","path":"objects/ob_player/ob_player.yy",},},
     {"id":{"name":"ob_plwall","path":"objects/ob_plwall/ob_plwall.yy",},},
     {"id":{"name":"Test_Room","path":"rooms/Test_Room/Test_Room.yy",},},
