@@ -44,8 +44,8 @@
   },
   "origin":0,
   "parent":{
-    "name":"jORG proyect",
-    "path":"jORG proyect.yyp",
+    "name":"Sprites",
+    "path":"folders/Sprites.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
