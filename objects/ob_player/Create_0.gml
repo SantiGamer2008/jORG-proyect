@@ -7,6 +7,7 @@ function setOnGround(_val = true)
 		coyoteSusTimer = coyoteSusFrames;
 	} else {
 		onGround = false;
+		myFloorPlat = noone;
 		coyoteSusTimer = 0;
 	}
 }
@@ -38,3 +39,8 @@ coyoteSusTimer = 0;
 //Tiempo de salto al caer
 coyoteJumpFrames = 10;
 coyoteJumpTimer = 0;
+
+//Moving Platforms
+myFloorPlat = noone;
+moveplatXspd = 0;
+moveplatMaxYspd = 40;

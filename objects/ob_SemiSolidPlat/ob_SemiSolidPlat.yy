@@ -1,11 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"ob_plwall",
+  "%Name":"ob_SemiSolidPlat",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"ob_plwall",
+  "name":"ob_SemiSolidPlat",
   "overriddenProperties":[],
   "parent":{
     "name":"Objetos",
@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sp_plwall",
-    "path":"sprites/sp_plwall/sp_plwall.yy",
+    "name":"sp_plSemiSolidPlat",
+    "path":"sprites/sp_plSemiSolidPlat/sp_plSemiSolidPlat.yy",
   },
   "spriteMaskId":null,
   "visible":true,

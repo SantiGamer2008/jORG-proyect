@@ -1,17 +1,21 @@
 {
   "$GMObject":"",
-  "%Name":"ob_plwall",
+  "%Name":"ob_semiSolidMovePlat",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":1,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"ob_plwall",
+  "name":"ob_semiSolidMovePlat",
   "overriddenProperties":[],
   "parent":{
     "name":"Objetos",
     "path":"folders/Objetos.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"ob_SemiSolidPlat",
+    "path":"objects/ob_SemiSolidPlat/ob_SemiSolidPlat.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -30,8 +34,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sp_plwall",
-    "path":"sprites/sp_plwall/sp_plwall.yy",
+    "name":"sp_plSemiSolidMovePlat",
+    "path":"sprites/sp_plSemiSolidMovePlat/sp_plSemiSolidMovePlat.yy",
   },
   "spriteMaskId":null,
   "visible":true,
