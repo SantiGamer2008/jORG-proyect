@@ -15,6 +15,8 @@ function setOnGround(_val = true)
 //Variables del jugador
 controlsSetup();
 
+depth = -30
+
 //Movimiento
 moveDir = 0;
 moveVel = 10;
@@ -23,6 +25,7 @@ yVel = 0;
 
 //Saltos
 grav = 0.9;
+gravOnAWall = 0.5
 limitVely = 20;
 JumpVel = -14;
 jumpMax = 1;
@@ -43,4 +46,10 @@ coyoteJumpTimer = 0;
 //Moving Platforms
 myFloorPlat = noone;
 moveplatXspd = 0;
-moveplatMaxYspd = 40;
+moveplatMaxYspd = limitVely;
+
+//Wall Jump
+onWall = 0;
+xVelWJump = 50;
+yVelWJump = -20;
+yVelMaxWall = 15;

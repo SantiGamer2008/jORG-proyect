@@ -1,12 +1,21 @@
 //Obtener Inputs (Teclas etc.)
 GetControls();
 
+var onAWall = place_meeting(x+1, y, ob_plwall) - place_meeting(x-1, y, ob_plwall);
+
 //Movimiento en X
 //Direccion
 moveDir = rightKey - leftKey;
 
 //Obtener velocidad en X
 xVel = moveDir * moveVel;
+
+//Wall Jump
+if (onAWall != 0) && (!onGround) && (jumpKey)
+{
+	xVel = -onAWall * xVelWJump;
+	yVel = yVelWJump;
+}
 
 //Colisiones en X
 var _subPixel = 0.5;
@@ -28,12 +37,21 @@ x += xVel;
 //Movimiento en Y
 
 //Gravedad
+var gravFinal = grav;
+var yVelMaxFinal = limitVely;
+
+if (onAWall != 0) && (yVel > 0)
+{
+	gravFinal = gravOnAWall;
+	yVelMaxFinal = yVelMaxWall;
+}
 if coyoteSusTimer > 0
 {
 	coyoteSusTimer--;
 } else {
 	//Aplicar gravedad
-	yVel += grav;
+	yVel += gravFinal;
+	yVel = clamp(yVel, -yVelMaxFinal, yVelMaxFinal)
 	//Ya no estamos en el suelo
 	setOnGround(false)
 }
@@ -49,7 +67,14 @@ if onGround
 }
 	
 //Salto
-if jumpKeyBuffered && jumpCount < jumpMax
+var _floorIsSolid = false;
+if instance_exists(myFloorPlat)
+&& (myFloorPlat.object_index == ob_plwall || object_is_ancestor(myFloorPlat.object_index, ob_plwall))
+{
+	_floorIsSolid = true;
+}
+
+if jumpKeyBuffered && jumpCount < jumpMax && (!downKey || _floorIsSolid)
 {
 	//reset buffer
 	jumpKeyBuffered = false;
@@ -87,6 +112,32 @@ if jumpHoldTimer > 0
 if yVel > limitVely {yVel = limitVely;}
 	
 //Colisiones en Y
+var _subPixel = .5;
+
+if yVel < 0 && place_meeting(x, y + yVel, ob_plwall)
+{
+	var _slopeSlide = false;
+	
+	if !_slopeSlide
+	{
+		var _pixelCheck = _subPixel * sign(yVel);
+		while !place_meeting(x, y + _pixelCheck, ob_plwall)
+		{
+		y += _pixelCheck;
+		}
+
+		//Bonk Code XD
+		if yVel < 0
+		{
+			jumpHoldTimer = 0;
+		}
+
+
+		yVel = 0;
+	}
+}
+
+
 
 //Floor Y Collisions (En ingles porque suena mejor XD)
 
@@ -108,7 +159,7 @@ for (var i = 0; i < _listSize; i++)
 	if (_listInst.yVel <= yVel || instance_exists(myFloorPlat))
 	&& (_listInst.yVel > 0 || place_meeting(x, y+1 + _clampYspd, _listInst))
 	{
-				//Devolver solidwall o cualquier semisolidplat que esta debajo del jugador
+			//Devolver solidwall o cualquier semisolidplat que esta debajo del jugador
 			if _listInst.object_index == ob_plwall 
 			|| object_is_ancestor(_listInst.object_index, ob_plwall) 
 			|| floor(bbox_bottom) <= ceil(_listInst.bbox_top - _listInst.yVel)
@@ -151,12 +202,67 @@ if instance_exists(myFloorPlat)
 	setOnGround(true);
 }
 
-//Bonk Code XD
-/*if yVel < 0
+if downKey && jumpKeyPressed
 {
-	jumpHoldTimer = 0;
-}*/
+	if instance_exists(myFloorPlat)
+	&& (myFloorPlat.object_index == ob_SemiSolidPlat || object_is_ancestor(myFloorPlat.object_index, ob_SemiSolidPlat))
+	{
+		var _yCheck = max(1, myFloorPlat.yVel+1)
+		if !place_meeting(x, y + _yCheck, ob_plwall)
+		{
+			y += 1;
+			
+			yVel = _yCheck-1;
+			
+			setOnGround(false);
+		}
+	}
+}
 
-	
 //Mover
 y += yVel;
+
+//final de las plataformas movibles colisiones y movimiento
+// X - moveplatXspd and collision
+moveplatXspd = 0;
+if instance_exists(myFloorPlat) {moveplatXspd = myFloorPlat.xVel}
+
+if place_meeting(x + moveplatXspd, y, ob_plwall)
+{
+	var _subPixel = .5;
+	var _pixelCheck = _subPixel * sign(moveplatXspd);
+	while !place_meeting(x + _pixelCheck, y, ob_plwall)
+	{
+		x += _pixelCheck;
+	}
+	
+	moveplatXspd = 0;
+	
+}
+
+x += moveplatXspd;
+
+// Y - Engancharme a mi mismo a myFloorPlat
+if instance_exists(myFloorPlat) && (myFloorPlat.yVel != 0 
+|| myFloorPlat.object_index == ob_semiSolidMovePlat || object_is_ancestor(myFloorPlat.object_index, ob_semiSolidMovePlat))
+{
+	//Engancharse al piso de la plataforma
+	if !place_meeting(x, myFloorPlat.bbox_top, ob_plwall)
+	&& myFloorPlat.bbox_top >= bbox_bottom+moveplatMaxYspd
+	{
+		y = myFloorPlat.bbox_top;
+	}
+	
+	if myFloorPlat.yVel < 0 && place_meeting(x, y + myFloorPlat.yVel, ob_plwall)
+	{
+		if myFloorPlat.object_index == ob_SemiSolidPlat || object_is_ancestor(myFloorPlat.object_index, ob_SemiSolidPlat)
+		{
+			var _subPixel = .25;
+			while place_meeting(x, y + myFloorPlat.yVel, ob_plwall) {y += _subPixel; };
+			
+			while place_meeting(x, y, ob_plwall) {y -= _subPixel; };
+			y = round(y);
+		}
+		setOnGround(false);
+	}
+}
