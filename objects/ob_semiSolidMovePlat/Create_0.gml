@@ -1,5 +1,3 @@
-event_inherited();
-
 depth = -10
 
 dir = 0;

@@ -34,8 +34,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sp_plSemiSolidMovePlat",
-    "path":"sprites/sp_plSemiSolidMovePlat/sp_plSemiSolidMovePlat.yy",
+    "name":"spr_SemiSolidMovePlat",
+    "path":"sprites/spr_SemiSolidMovePlat/spr_SemiSolidMovePlat.yy",
   },
   "spriteMaskId":null,
   "visible":true,

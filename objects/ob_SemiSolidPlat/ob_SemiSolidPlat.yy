@@ -1,9 +1,7 @@
 {
   "$GMObject":"",
   "%Name":"ob_SemiSolidPlat",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "eventList":[],
   "managed":true,
   "name":"ob_SemiSolidPlat",
   "overriddenProperties":[],
@@ -30,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sp_plSemiSolidPlat",
-    "path":"sprites/sp_plSemiSolidPlat/sp_plSemiSolidPlat.yy",
+    "name":"spr_SemiSolidPlat",
+    "path":"sprites/spr_SemiSolidPlat/spr_SemiSolidPlat.yy",
   },
   "spriteMaskId":null,
   "visible":true,
