@@ -36,8 +36,6 @@
   "name":"jORG proyect",
   "resources":[
     {"id":{"name":"Menu_Font","path":"fonts/Menu_Font/Menu_Font.yy",},},
-    {"id":{"name":"ob_semiSolidMovePlat","path":"objects/ob_semiSolidMovePlat/ob_semiSolidMovePlat.yy",},},
-    {"id":{"name":"ob_SemiSolidPlat","path":"objects/ob_SemiSolidPlat/ob_SemiSolidPlat.yy",},},
     {"id":{"name":"ob_test","path":"objects/ob_test/ob_test.yy",},},
     {"id":{"name":"obj_button_menu","path":"objects/obj_button_menu/obj_button_menu.yy",},},
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},},
@@ -46,6 +44,8 @@
     {"id":{"name":"obj_play_button","path":"objects/obj_play_button/obj_play_button.yy",},},
     {"id":{"name":"obj_player_decorative","path":"objects/obj_player_decorative/obj_player_decorative.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
+    {"id":{"name":"obj_semiSolidMovePlat","path":"objects/obj_semiSolidMovePlat/obj_semiSolidMovePlat.yy",},},
+    {"id":{"name":"obj_semiSolidPlat","path":"objects/obj_semiSolidPlat/obj_semiSolidPlat.yy",},},
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},},
     {"id":{"name":"obj_wall1","path":"objects/obj_wall1/obj_wall1.yy",},},
     {"id":{"name":"obj_wallParent","path":"objects/obj_wallParent/obj_wallParent.yy",},},

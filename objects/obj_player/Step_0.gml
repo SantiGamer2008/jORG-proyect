@@ -1,8 +1,10 @@
 //Obtener Inputs (Teclas etc.)
 GetControls();
 
-var onGround = place_meeting(x, y + 1, obj_wallParent);
+
+var OnGround = place_meeting(x, y + 1, obj_wallParent) || onOneWay
 var OnWall = place_meeting(x - 5, y, obj_wall) - place_meeting(x + 5, y, obj_wall);
+var IgnoreOneWay = false
 
 movementTimerLock = max(movementTimerLock - 1, 0)
 
@@ -44,7 +46,7 @@ else {
 }
 	
 //Resetear o preparar las variables de salto
-if (onGround) {
+if OnGround {
 	
 	jumpCount = 0;
 	coyoteJumpTimer = coyoteJumpFrames;
@@ -60,7 +62,7 @@ if (onGround) {
 
 //Salto
 //Dar margen de error al saltar
-if jumpKeyBuffered && jumpCount < jumpMax {
+if jumpKeyBuffered && !downKey && jumpCount < jumpMax {
 		
 	//reiniciar el buffer
 	jumpKeyBuffered = false;
@@ -86,7 +88,7 @@ if !jumpKey {
 //Bloquear el salto del personaje si la variable es igual o menor a 0
 if movementTimerLock <= 0
 	
-	if OnWall != 0 && jumpKeyPressed && !onGround {
+	if OnWall != 0 && jumpKeyPressed && !OnGround{
 		//Aplicar el salto en pared
 		ySpd = wallJumpVertSpd
 		xSpd = OnWall * wallJumpHorzSpd
@@ -97,10 +99,19 @@ if movementTimerLock <= 0
 if jumpHoldTimer > 0 {
 	//Aplicar el salto
 	ySpd = JumpSpd;
-	
+
 	//Contar el tiempo
 	jumpHoldTimer--;
 }
+
+//Dejar caer de la plataforma OneWay
+if downKey && jumpKeyPressed && actualPlatform != noone && !place_meeting(x, y + 1, obj_wallParent) {
+	
+	y += 2
+	IgnoreOneWay = true
+	actualPlatform = noone
+}
+
 
 //Colisiones en Y
 if place_meeting(x, y + ySpd, obj_wallParent) {
@@ -118,5 +129,38 @@ if place_meeting(x, y + ySpd, obj_wallParent) {
 	
 	ySpd = 0;
 }
+
+//SemiSolid Platform/One-Way Platform
+if ySpd >= 0 && !IgnoreOneWay {
+	var plat = instance_place(x, y + ySpd, obj_semiSolidPlat)
+	
+	if plat != noone {
+	
+		if bbox_bottom <= plat.bbox_top + 1 {
+			
+			if place_meeting(x, y + ySpd, obj_semiSolidPlat) {
+				while !place_meeting(x, y + sign(ySpd), obj_semiSolidPlat) {
+					y += sign(ySpd);
+				}
+				ySpd = 0;
+				actualPlatform = plat
+			}
+		}
+	}
+}
+
+if !IgnoreOneWay {
+	var plat_check = instance_place(x, y + 1, obj_semiSolidPlat)
+	
+	if plat_check != noone && bbox_bottom <= plat_check.bbox_top + 1 {
+		actualPlatform = plat_check
+	} else if !place_meeting(x, y + 1, obj_wallParent) { actualPlatform = noone }
+	
+	if plat_check != noone && bbox_bottom <= plat_check.bbox_top + 1 { onOneWay = true } 
+	else { onOneWay = false }
+
+}
+
+
 
 y += ySpd;

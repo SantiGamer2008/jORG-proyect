@@ -2,7 +2,7 @@
 controlsSetup();
 
 //Profundidad del objeto (Mientras mas chico sea mas cerca)
-depth = -30
+depth = -30;
 
 //Movimiento
 spd = 10;
@@ -11,7 +11,7 @@ ySpd = 0;
 
 //Gravedad
 grav = 0.9;
-limitySpd = 20;
+limitYSpd = 20;
 
 //Saltos
 JumpSpd = -14;
@@ -29,10 +29,12 @@ coyoteSusTimer = 0;
 coyoteJumpFrames = 10;
 coyoteJumpTimer = 0;
 
-//Moving Platforms
+//OneWay
+onOneWay = false
+actualPlatform = noone
 
 //Wall Jump
-wallJumpVertSpd = -18
-wallJumpHorzSpd = 12
+wallJumpVertSpd = -18;
+wallJumpHorzSpd = 12;
 
-movementTimerLock = 0
+movementTimerLock = 0;

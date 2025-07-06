@@ -1,9 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"ob_SemiSolidPlat",
-  "eventList":[],
+  "%Name":"obj_semiSolidPlat",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"ob_SemiSolidPlat",
+  "name":"obj_semiSolidPlat",
   "overriddenProperties":[],
   "parent":{
     "name":"Objetos",
