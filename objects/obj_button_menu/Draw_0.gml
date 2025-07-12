@@ -1,4 +1,3 @@
-
 var centerX = x - sprite_xoffset + (sprite_width / 2)
 var centerY = y - sprite_yoffset + (sprite_height / 2)
 

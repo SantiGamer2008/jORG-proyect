@@ -13,6 +13,9 @@ switch accion {
 
 		break
 	case 1:
+		
+		break
+	case 2:
 		game_end()
 		break
 }

@@ -27,7 +27,9 @@
     {"$GMFolder":"","%Name":"Sprites","folderPath":"folders/Sprites.yy","name":"Sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
   "ForcedPrefabProjectReferences":[],
-  "IncludedFiles":[],
+  "IncludedFiles":[
+    {"$GMIncludedFile":"","%Name":"TestCSV.csv","CopyToMask":-1,"filePath":"datafiles","name":"TestCSV.csv","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+  ],
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
@@ -36,11 +38,11 @@
   "name":"jORG proyect",
   "resources":[
     {"id":{"name":"Menu_Font","path":"fonts/Menu_Font/Menu_Font.yy",},},
-    {"id":{"name":"ob_test","path":"objects/ob_test/ob_test.yy",},},
     {"id":{"name":"obj_button_menu","path":"objects/obj_button_menu/obj_button_menu.yy",},},
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},},
     {"id":{"name":"obj_fondo","path":"objects/obj_fondo/obj_fondo.yy",},},
     {"id":{"name":"obj_menu_title","path":"objects/obj_menu_title/obj_menu_title.yy",},},
+    {"id":{"name":"obj_pause","path":"objects/obj_pause/obj_pause.yy",},},
     {"id":{"name":"obj_play_button","path":"objects/obj_play_button/obj_play_button.yy",},},
     {"id":{"name":"obj_player_decorative","path":"objects/obj_player_decorative/obj_player_decorative.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
@@ -51,6 +53,7 @@
     {"id":{"name":"obj_wallParent","path":"objects/obj_wallParent/obj_wallParent.yy",},},
     {"id":{"name":"Menu_Room","path":"rooms/Menu_Room/Menu_Room.yy",},},
     {"id":{"name":"Test_Room","path":"rooms/Test_Room/Test_Room.yy",},},
+    {"id":{"name":"RoomUI","path":"roomui/RoomUI/RoomUI.yy",},},
     {"id":{"name":"funciones_generales","path":"scripts/funciones_generales/funciones_generales.yy",},},
     {"id":{"name":"Menu_sound","path":"sounds/Menu_sound/Menu_sound.yy",},},
     {"id":{"name":"Start_sound","path":"sounds/Start_sound/Start_sound.yy",},},

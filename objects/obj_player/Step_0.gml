@@ -1,7 +1,6 @@
 //Obtener Inputs (Teclas etc.)
 GetControls();
 
-
 var OnGround = place_meeting(x, y + 1, obj_wallParent) || onOneWay
 var OnWall = place_meeting(x - 5, y, obj_wall) - place_meeting(x + 5, y, obj_wall);
 var IgnoreOneWay = false
@@ -160,7 +159,5 @@ if !IgnoreOneWay {
 	else { onOneWay = false }
 
 }
-
-
 
 y += ySpd;

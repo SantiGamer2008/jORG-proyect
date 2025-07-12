@@ -1,3 +1,12 @@
+function Resolution()
+{
+	
+	W = 1024
+	H = 768
+	
+	window_set_size(W, H)
+	
+}
 function controlsSetup()
 {
 	bufferTime = 10;	
@@ -28,13 +37,13 @@ function GetControls()
 	//Salto Buffer
 	if jumpKeyPressed
 	{
-		jumpKeyBufferTimer = bufferTime;
+		jumpKeyBufferTimer = bufferTime
 	}
 	if jumpKeyBufferTimer > 0
 	{
 		jumpKeyBuffered = 1;
 		jumpKeyBufferTimer--;
 	} else {
-		jumpKeyBuffered = 0;	
+		jumpKeyBuffered = 0;
 	}
 }
