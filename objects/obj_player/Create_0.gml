@@ -38,3 +38,9 @@ wallJumpVertSpd = -18;
 wallJumpHorzSpd = 12;
 
 movementTimerLock = 0;
+
+//Climbable Wall
+limitYSpdClimbingUp = -5
+limitYSpdClimbingDown = 5
+limitXSpdClimbingLeft = -5
+limitXSpdClimbingRight = 5

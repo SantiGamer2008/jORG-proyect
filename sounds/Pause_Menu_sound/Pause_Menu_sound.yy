@@ -1,16 +1,16 @@
 {
   "$GMSound":"",
-  "%Name":"Menu_sound",
+  "%Name":"Pause_Menu_sound",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
   },
   "bitDepth":1,
-  "bitRate":128,
+  "bitRate":192,
   "compression":0,
   "conversionMode":0,
-  "duration":26.4,
-  "name":"Menu_sound",
+  "duration":17.309298,
+  "name":"Pause_Menu_sound",
   "parent":{
     "name":"Sonidos",
     "path":"folders/Sonidos.yy",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"Menu_sound.wav",
-  "type":0,
-  "volume":0.55,
+  "soundFile":"Pause_Menu_sound.ogg",
+  "type":1,
+  "volume":1.0,
 }

@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"Start_sound",
+  "%Name":"Pl_Start_sound",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,16 +10,16 @@
   "compression":0,
   "conversionMode":0,
   "duration":2.83,
-  "name":"Start_sound",
+  "name":"Pl_Start_sound",
   "parent":{
-    "name":"Sonidos",
-    "path":"folders/Sonidos.yy",
+    "name":"No Original",
+    "path":"folders/Sonidos/No Original.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"Start_sound.ogg",
+  "soundFile":"Pl_Start_sound.ogg",
   "type":0,
   "volume":1.0,
 }

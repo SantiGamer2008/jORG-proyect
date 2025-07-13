@@ -1,0 +1,1 @@
+currentSpeed = plataformSpeed

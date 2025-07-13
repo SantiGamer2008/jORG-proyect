@@ -1,9 +1,10 @@
 //Obtener Inputs (Teclas etc.)
 GetControls();
 
-var OnGround = place_meeting(x, y + 1, obj_wallParent) || onOneWay
+var OnGround = place_meeting(x, y + 1, obj_wallParent) || onOneWay || place_meeting(x, y + 1, obj_movingPlatform)
 var OnWall = place_meeting(x - 5, y, obj_wall) - place_meeting(x + 5, y, obj_wall);
 var IgnoreOneWay = false
+var Isclimbing = false
 
 movementTimerLock = max(movementTimerLock - 1, 0)
 
@@ -20,6 +21,25 @@ if movementTimerLock <= 0 {
 	xSpd = moveDir * spd;
 }
 
+//Pared Escalable
+if place_meeting(x, y, obj_climbableWall) {
+	
+	if grabKey {
+		if !Isclimbing { ySpd = 0 }
+		Isclimbing = true
+
+	} else { Isclimbing = false }
+	
+} else { Isclimbing = false }
+
+if Isclimbing {
+	if xSpd > limitXSpdClimbingLeft || limitXSpdClimbingRight { 
+		
+		xSpd = moveDir * limitXSpdClimbingRight
+	}
+}
+
+
 //Colisiones en X
 if place_meeting(x + xSpd, y, obj_wallParent) {
 	
@@ -28,6 +48,14 @@ if place_meeting(x + xSpd, y, obj_wallParent) {
 	}
 	
 	xSpd = 0;
+}
+
+var _movingPlatformX = instance_place(x + xSpd, y, obj_movingPlatform)
+
+if _movingPlatformX != noone && bbox_left <= _movingPlatformX.bbox_right + 1 {
+		xSpd += _movingPlatformX.moveX
+} else if _movingPlatformX != noone && bbox_right <= _movingPlatformX.bbox_left + 1 {
+		xSpd += _movingPlatformX.moveX
 }
 
 x += xSpd;
@@ -40,6 +68,8 @@ if coyoteSusTimer > 0 {
 } else if (OnWall != 0) { ySpd = min(ySpd + 1, 5) }
 
 else {
+	
+	if ySpd > limitYSpd { ySpd = limitYSpd }
 	//Aplicar gravedad
 	ySpd += grav;
 }
@@ -104,15 +134,45 @@ if jumpHoldTimer > 0 {
 }
 
 //Dejar caer de la plataforma OneWay
-if downKey && jumpKeyPressed && actualPlatform != noone && !place_meeting(x, y + 1, obj_wallParent) {
-	
+if downKey && jumpKeyPressed && actualPlatform != noone && !place_meeting(x, y + 1, obj_wallParent) && !Isclimbing {
 	y += 2
 	IgnoreOneWay = true
 	actualPlatform = noone
 }
 
+//Escalando
+if Isclimbing {
 
+	if upKey {
+			
+		if ySpd > limitYSpdClimbingUp { ySpd = limitYSpdClimbingUp }
+		ySpd -= 1
+		
+	} else if downKey {
+			
+		if ySpd > limitYSpdClimbingDown { ySpd = limitYSpdClimbingDown }
+		ySpd += 1
+			
+	} else { ySpd = 0 }
+	
+}
 //Colisiones en Y
+
+//Collision de Plataformas Movible
+var _movingPlatformY = instance_place(x, y + max(1, ySpd), obj_movingPlatform)
+	
+if _movingPlatformY != noone && bbox_bottom <= _movingPlatformY.bbox_top + 1 {
+	if ySpd > 0 {
+		while !place_meeting(x, y + sign(ySpd), obj_movingPlatform) {
+			y += sign(ySpd)
+			
+		}
+		ySpd = 0
+	}
+		x += _movingPlatformY.moveX
+		y += _movingPlatformY.moveY
+}
+
 if place_meeting(x, y + ySpd, obj_wallParent) {
 	
 	while (!place_meeting(x, y  + sign(ySpd), obj_wallParent)) {
@@ -131,31 +191,31 @@ if place_meeting(x, y + ySpd, obj_wallParent) {
 
 //SemiSolid Platform/One-Way Platform
 if ySpd >= 0 && !IgnoreOneWay {
-	var plat = instance_place(x, y + ySpd, obj_semiSolidPlat)
+	var _plat = instance_place(x, y + ySpd, obj_semiSolidPlat)
 	
-	if plat != noone {
+	if _plat != noone {
 	
-		if bbox_bottom <= plat.bbox_top + 1 {
+		if bbox_bottom <= _plat.bbox_top + 1 {
 			
 			if place_meeting(x, y + ySpd, obj_semiSolidPlat) {
 				while !place_meeting(x, y + sign(ySpd), obj_semiSolidPlat) {
 					y += sign(ySpd);
 				}
 				ySpd = 0;
-				actualPlatform = plat
+				actualPlatform = _plat
 			}
 		}
 	}
 }
 
 if !IgnoreOneWay {
-	var plat_check = instance_place(x, y + 1, obj_semiSolidPlat)
+	var _plat_check = instance_place(x, y + 1, obj_semiSolidPlat)
 	
-	if plat_check != noone && bbox_bottom <= plat_check.bbox_top + 1 {
-		actualPlatform = plat_check
+	if _plat_check != noone && bbox_bottom <= _plat_check.bbox_top + 1 {
+		actualPlatform = _plat_check
 	} else if !place_meeting(x, y + 1, obj_wallParent) { actualPlatform = noone }
 	
-	if plat_check != noone && bbox_bottom <= plat_check.bbox_top + 1 { onOneWay = true } 
+	if _plat_check != noone && bbox_bottom <= _plat_check.bbox_top + 1 { onOneWay = true } 
 	else { onOneWay = false }
 
 }

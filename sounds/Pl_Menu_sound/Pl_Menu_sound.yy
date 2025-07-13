@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"Pl_Menu_sound",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":26.4,
+  "name":"Pl_Menu_sound",
+  "parent":{
+    "name":"No Original",
+    "path":"folders/Sonidos/No Original.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"Pl_Menu_sound.wav",
+  "type":0,
+  "volume":0.55,
+}

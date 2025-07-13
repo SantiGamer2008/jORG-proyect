@@ -1,6 +1,7 @@
 var cam_w = camera_get_view_width(view_camera[0])
 var cam_h = camera_get_view_height(view_camera[0])
 
+//Saca screenshot de la pantalla
 if (pause) {
 	if (!surface_exists(pauseSurface)) {
 		pauseSurface = surface_create(surface_get_width(application_surface), surface_get_height(application_surface))
@@ -10,7 +11,7 @@ if (pause) {
 		
 		instance_deactivate_all(true)
 	}
-	
+	//dibuja el screenshot en la pantalla agregando cosas
 	draw_surface(pauseSurface, 0, 0)
 	
 	draw_set_color(c_black)
