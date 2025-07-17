@@ -1,6 +1,8 @@
 //Obtener Inputs (Teclas etc.)
 GetControls();
 
+if !canMove exit
+
 var OnGround = place_meeting(x, y + 1, obj_wallParent) || onOneWay || place_meeting(x, y + 1, obj_movingPlatform)
 var OnWall = place_meeting(x - 5, y, obj_wall) - place_meeting(x + 5, y, obj_wall);
 var IgnoreOneWay = false
@@ -38,7 +40,6 @@ if Isclimbing {
 		xSpd = moveDir * limitXSpdClimbingRight
 	}
 }
-
 
 //Colisiones en X
 if place_meeting(x + xSpd, y, obj_wallParent) {
@@ -220,4 +221,4 @@ if !IgnoreOneWay {
 
 }
 
-y += ySpd;
+y += ySpd

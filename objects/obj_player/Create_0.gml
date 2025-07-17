@@ -44,3 +44,6 @@ limitYSpdClimbingUp = -5
 limitYSpdClimbingDown = 5
 limitXSpdClimbingLeft = -5
 limitXSpdClimbingRight = 5
+
+//Transicion de la camara
+canMove = true
