@@ -1,0 +1,1 @@
+pauseOnUnfocus = true

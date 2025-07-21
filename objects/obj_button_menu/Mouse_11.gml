@@ -1,1 +1,0 @@
-mouseTocando = false

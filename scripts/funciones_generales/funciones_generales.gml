@@ -24,7 +24,7 @@ function GetControls()
 	leftKey = keyboard_check(vk_left) + gamepad_button_check(0, gp_padl) + keyboard_check(ord("A") )
 	leftKey = clamp(leftKey, 0, 1)
 	
-	downKey = keyboard_check(vk_down) + gamepad_button_check_pressed(0, gp_padd) + keyboard_check(ord("S"))
+	downKey = keyboard_check(vk_down) + gamepad_button_check(0, gp_padd) + keyboard_check(ord("S"))
 	downKey = clamp(downKey, 0, 1)
 	
 	upKey = keyboard_check(vk_up) + gamepad_button_check(0, gp_padu) + keyboard_check(ord("W"))

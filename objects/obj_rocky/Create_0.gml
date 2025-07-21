@@ -1,5 +1,9 @@
+depth = -20
+
+Seguir = false
+
 //Movimiento
-spd = 5
+spd = 10
 
 //flotar
 baseY = y

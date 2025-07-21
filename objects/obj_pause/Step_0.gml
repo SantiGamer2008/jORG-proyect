@@ -1,5 +1,21 @@
-//se reproduce cada frame mientras esta apretando el boton
-if keyboard_check_pressed(vk_escape) && room != Menu_Room {
+if keyboard_check_pressed(vk_backspace) && !pause {
+	game_restart();
+}
+
+windowFocus = window_has_focus()
+
+//Si la instancia obj no pausa existe devolver y no hacer nada
+if instance_exists(obj_noPausa) exit
+
+//Pausar al desenfocar el juego
+if instance_exists(obj_settings) {
+	if obj_settings.pauseOnUnfocus == true {
+		if !windowFocus { pause = true }
+	}
+}
+
+//Pausa XD
+if keyboard_check_pressed(vk_escape){
 	pause = !pause
 	
 	if pause {
@@ -15,10 +31,6 @@ if keyboard_check_pressed(vk_escape) && room != Menu_Room {
 		instance_activate_all()
 		musicDelay = 0
 	}
-}
-
-if keyboard_check_pressed(vk_backspace) && !pause {
-	game_restart();
 }
 
 //Se reproduce cada frame
