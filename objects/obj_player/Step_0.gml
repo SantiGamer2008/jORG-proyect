@@ -10,6 +10,13 @@ var Isclimbing = false
 
 movementTimerLock = max(movementTimerLock - 1, 0)
 
+//Si muere hacer esto
+if dead {
+	loadGame("saveSlot0.ini")
+	show_debug_message("Murio")
+}
+
+
 //Movimiento en X
 //Direccion
 var moveDir = rightKey - leftKey;
@@ -22,6 +29,11 @@ if movementTimerLock <= 0 {
 
 	xSpd = moveDir * spd;
 }
+
+if place_meeting(x, y, obj_spikes) {
+	dead = true
+}
+
 
 //Pared Escalable
 if place_meeting(x, y, obj_climbableWall) {

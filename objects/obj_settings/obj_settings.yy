@@ -1,15 +1,13 @@
 {
   "$GMObject":"",
   "%Name":"obj_settings",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "eventList":[],
   "managed":true,
   "name":"obj_settings",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos",
-    "path":"folders/Objetos.yy",
+    "name":"Dev",
+    "path":"folders/Objetos/Dev.yy",
   },
   "parentObjectId":null,
   "persistent":true,

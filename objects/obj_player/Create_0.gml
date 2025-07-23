@@ -47,3 +47,5 @@ limitXSpdClimbingRight = 5
 
 //Transicion de la camara
 canMove = true
+
+dead = false

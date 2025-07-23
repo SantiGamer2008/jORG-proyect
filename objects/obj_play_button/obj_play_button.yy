@@ -9,8 +9,8 @@
   "name":"obj_play_button",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos",
-    "path":"folders/Objetos.yy",
+    "name":"PocoUsado",
+    "path":"folders/Objetos/PocoUsado.yy",
   },
   "parentObjectId":null,
   "persistent":false,

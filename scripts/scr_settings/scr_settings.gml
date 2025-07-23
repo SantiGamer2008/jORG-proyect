@@ -1,0 +1,1 @@
+global.pauseOnUnfocus = true

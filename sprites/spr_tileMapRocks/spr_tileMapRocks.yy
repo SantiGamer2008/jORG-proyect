@@ -3,7 +3,7 @@
   "%Name":"spr_tileMapRocks",
   "bboxMode":0,
   "bbox_bottom":511,
-  "bbox_left":64,
+  "bbox_left":0,
   "bbox_right":575,
   "bbox_top":0,
   "collisionKind":1,
@@ -12,21 +12,21 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"8e275c9c-53c2-4b7e-9b13-ccb7b70ff933","name":"8e275c9c-53c2-4b7e-9b13-ccb7b70ff933","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"5a884c2d-ac29-4894-ac4e-2d2b326df1ff","name":"5a884c2d-ac29-4894-ac4e-2d2b326df1ff","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":512,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"23e902b5-24e2-496f-8cfc-1aebbfdef49b","blendMode":0,"displayName":"default","isLocked":false,"name":"23e902b5-24e2-496f-8cfc-1aebbfdef49b","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"082661bf-fcd4-430d-b4ca-b217cdb3b0eb","blendMode":0,"displayName":"default","isLocked":false,"name":"082661bf-fcd4-430d-b4ca-b217cdb3b0eb","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_tileMapRocks",
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Sprites",
-    "path":"folders/Sprites.yy",
+    "name":"TilesMaps",
+    "path":"folders/Sprites/TilesMaps.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
@@ -71,8 +71,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"8e275c9c-53c2-4b7e-9b13-ccb7b70ff933","path":"sprites/spr_tileMapRocks/spr_tileMapRocks.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"9399d495-429f-4350-823e-eb866bc6d213","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"5a884c2d-ac29-4894-ac4e-2d2b326df1ff","path":"sprites/spr_tileMapRocks/spr_tileMapRocks.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"2e2c4d1b-90a1-4436-8205-d224eba38ee0","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

@@ -1,12 +1,3 @@
-function Resolution()
-{
-	
-	W = 1024
-	H = 768
-	
-	window_set_size(W, H)
-	
-}
 function controlsSetup()
 {
 	bufferTime = 10

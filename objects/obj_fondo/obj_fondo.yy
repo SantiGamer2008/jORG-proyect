@@ -8,8 +8,8 @@
   "name":"obj_fondo",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos",
-    "path":"folders/Objetos.yy",
+    "name":"Decorativo",
+    "path":"folders/Objetos/Decorativo.yy",
   },
   "parentObjectId":null,
   "persistent":false,

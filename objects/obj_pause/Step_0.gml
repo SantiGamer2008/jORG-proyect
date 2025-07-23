@@ -1,5 +1,5 @@
 if keyboard_check_pressed(vk_backspace) && !pause {
-	game_restart();
+	game_restart()
 }
 
 windowFocus = window_has_focus()
@@ -9,7 +9,7 @@ if instance_exists(obj_noPausa) exit
 
 //Pausar al desenfocar el juego
 if instance_exists(obj_settings) {
-	if obj_settings.pauseOnUnfocus == true {
+	if global.pauseOnUnfocus == true {
 		if !windowFocus { pause = true }
 	}
 }

@@ -8,8 +8,8 @@
   "name":"obj_semiSolidPlat",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos",
-    "path":"folders/Objetos.yy",
+    "name":"Collisions",
+    "path":"folders/Objetos/Collisions.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -11,8 +11,8 @@
   "name":"obj_button_menu",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos",
-    "path":"folders/Objetos.yy",
+    "name":"PocoUsado",
+    "path":"folders/Objetos/PocoUsado.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -38,9 +38,6 @@
     "name":"spr_button",
     "path":"sprites/spr_button/spr_button.yy",
   },
-  "spriteMaskId":{
-    "name":"spr_CollisionButtons",
-    "path":"sprites/spr_CollisionButtons/spr_CollisionButtons.yy",
-  },
+  "spriteMaskId":null,
   "visible":true,
 }
