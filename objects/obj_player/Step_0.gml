@@ -30,11 +30,6 @@ if movementTimerLock <= 0 {
 	xSpd = moveDir * spd;
 }
 
-if place_meeting(x, y, obj_spikes) {
-	dead = true
-}
-
-
 //Pared Escalable
 if place_meeting(x, y, obj_climbableWall) {
 	
@@ -67,7 +62,7 @@ var _movingPlatformX = instance_place(x + xSpd, y, obj_movingPlatform)
 
 if _movingPlatformX != noone && bbox_left <= _movingPlatformX.bbox_right + 1 {
 		xSpd += _movingPlatformX.moveX
-} else if _movingPlatformX != noone && bbox_right <= _movingPlatformX.bbox_left + 1 {
+} else if _movingPlatformX != noone && bbox_right >= _movingPlatformX.bbox_left - 1 {
 		xSpd += _movingPlatformX.moveX
 }
 
@@ -148,9 +143,11 @@ if jumpHoldTimer > 0 {
 
 //Dejar caer de la plataforma OneWay
 if downKey && jumpKeyPressed && actualPlatform != noone && !place_meeting(x, y + 1, obj_wallParent) && !Isclimbing {
-	y += 2
+	
+	ySpd += 2
 	IgnoreOneWay = true
 	actualPlatform = noone
+	
 }
 
 //Escalando
@@ -173,12 +170,11 @@ if Isclimbing {
 
 //Collision de Plataformas Movible
 var _movingPlatformY = instance_place(x, y + max(1, ySpd), obj_movingPlatform)
-	
+
 if _movingPlatformY != noone && bbox_bottom <= _movingPlatformY.bbox_top + 1 {
 	if ySpd > 0 {
 		while !place_meeting(x, y + sign(ySpd), obj_movingPlatform) {
 			y += sign(ySpd)
-			
 		}
 		ySpd = 0
 	}
@@ -202,7 +198,7 @@ if place_meeting(x, y + ySpd, obj_wallParent) {
 	ySpd = 0;
 }
 
-//SemiSolid Platform/One-Way Platform
+//SemiSolid Platform
 if ySpd >= 0 && !IgnoreOneWay {
 	var _plat = instance_place(x, y + ySpd, obj_semiSolidPlat)
 	
@@ -214,10 +210,35 @@ if ySpd >= 0 && !IgnoreOneWay {
 				while !place_meeting(x, y + sign(ySpd), obj_semiSolidPlat) {
 					y += sign(ySpd);
 				}
+				
 				ySpd = 0;
 				actualPlatform = _plat
+				
 			}
 		}
+	}
+}
+
+if instance_exists(actualPlatform) {
+	if actualPlatform.object_index == obj_hotFloor {
+			
+		if place_meeting(x, y + 1, obj_hotFloor) {
+			if hotTimer < hotTime {
+					
+				hotTimer++
+					
+			} else {
+				
+				ySpd = JumpSpd
+					
+			}	
+		}
+	}
+} else {
+	if hotTimer <= 0 {
+		hotTimer = 0
+	} else {
+		hotTimer--
 	}
 }
 

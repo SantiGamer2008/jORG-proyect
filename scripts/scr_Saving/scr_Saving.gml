@@ -13,6 +13,7 @@ global.lastCheckpointY = 0
 
 //Player
 global.loadPlayerPosition = false
+global.rockySeguir = false
 
 function newGame(_file) {
 	if file_exists(_file) {
@@ -24,7 +25,11 @@ function saveGame(_file){
 	
 	ini_open(_file)
 	
+	//Player
 	ini_write_string("player", "actualRoom", room_get_name(room))
+	ini_write_real("player", "rockySeguir", global.rockySeguir)
+	
+	//World
 	ini_write_string("world", "lastCheckpoint", string(global.lastCheckpointID))
 	ini_write_real("world", "lastcpX", global.lastCheckpointX)
 	ini_write_real("world", "lastcpY", global.lastCheckpointY)
@@ -38,11 +43,16 @@ function saveGame(_file){
 function loadGame(_file){
 	
 	if file_exists(_file) {
+		
 		ini_open(_file)
 		
+		//Player
 		var _roomName = ini_read_string("player", "actualRoom", string(LevelSelect_Room))
 		var _room = get_room_index_from_name(_roomName)
 		
+		global.rockySeguir = ini_read_real("player", "rockySeguir", global.rockySeguir)
+		
+		//World
 		global.lastCheckpointID = ini_read_string("world", "lastCheckpoint", "")
 		global.lastCheckpointX = ini_read_real("world", "lastcpX", global.lastCheckpointX)
 		global.lastCheckpointY = ini_read_real("world", "lastcpY", global.lastCheckpointY)
@@ -55,7 +65,7 @@ function loadGame(_file){
 		
 		show_debug_message("Se cargo con exito la partida")
 		
-	} else { show_debug_message("Posiblemente el archivo no exista") }
+	} else { show_debug_message("No se encontre una partida guardada") }
 }
 
 function saveSettings() {

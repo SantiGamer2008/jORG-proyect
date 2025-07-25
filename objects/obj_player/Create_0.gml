@@ -29,9 +29,13 @@ coyoteSusTimer = 0;
 coyoteJumpFrames = 10;
 coyoteJumpTimer = 0;
 
-//OneWay
+//SemiSolidPlatform
 onOneWay = false
 actualPlatform = noone
+
+//HotFloor
+hotTime = 192
+hotTimer = 0
 
 //Wall Jump
 wallJumpVertSpd = -18;

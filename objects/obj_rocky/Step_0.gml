@@ -1,5 +1,5 @@
 //Perseguir al jugador
-if Seguir {
+if global.rockySeguir {
 	var target = instance_find(obj_player, 0)
 
 	if target != noone {
