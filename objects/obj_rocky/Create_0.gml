@@ -1,7 +1,5 @@
 depth = -20
 
-global.rockySeguir = false
-
 //Movimiento
 spd = 10
 

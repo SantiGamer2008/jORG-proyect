@@ -20,7 +20,7 @@ jumpCount = 0;
 jumpHoldTimer = 0;
 jumpHoldFrames = 20;
 
-//Coyote time
+//Coyote time Start
 //Tiempo de suspension
 coyoteSusFrames = 2;
 coyoteSusTimer = 0;
@@ -28,10 +28,12 @@ coyoteSusTimer = 0;
 //Tiempo de salto al caer
 coyoteJumpFrames = 10;
 coyoteJumpTimer = 0;
+//Coyote time End
 
 //SemiSolidPlatform
-onOneWay = false
-actualPlatform = noone
+onSemiSolid = false
+myFloorPlat = noone
+IgnoreOneWay = false
 
 //HotFloor
 hotTime = 192
@@ -44,6 +46,7 @@ wallJumpHorzSpd = 12;
 movementTimerLock = 0;
 
 //Climbable Wall
+Isclimbing = false
 limitYSpdClimbingUp = -5
 limitYSpdClimbingDown = 5
 limitXSpdClimbingLeft = -5

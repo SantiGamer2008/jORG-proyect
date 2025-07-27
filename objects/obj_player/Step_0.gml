@@ -3,10 +3,8 @@ GetControls();
 
 if !canMove exit
 
-var OnGround = place_meeting(x, y + 1, obj_wallParent) || onOneWay || place_meeting(x, y + 1, obj_movingPlatform)
+var OnGround = place_meeting(x, y + 1, obj_wallParent) || onSemiSolid
 var OnWall = place_meeting(x - 5, y, obj_wall) - place_meeting(x + 5, y, obj_wall);
-var IgnoreOneWay = false
-var Isclimbing = false
 
 movementTimerLock = max(movementTimerLock - 1, 0)
 
@@ -58,13 +56,13 @@ if place_meeting(x + xSpd, y, obj_wallParent) {
 	xSpd = 0;
 }
 
-var _movingPlatformX = instance_place(x + xSpd, y, obj_movingPlatform)
+/*var _movingPlatformX = instance_place(x + xSpd, y, obj_movingPlatform)
 
 if _movingPlatformX != noone && bbox_left <= _movingPlatformX.bbox_right + 1 {
 		xSpd += _movingPlatformX.moveX
 } else if _movingPlatformX != noone && bbox_right >= _movingPlatformX.bbox_left - 1 {
 		xSpd += _movingPlatformX.moveX
-}
+}*/
 
 x += xSpd;
 
@@ -88,6 +86,7 @@ if OnGround {
 	jumpCount = 0;
 	coyoteJumpTimer = coyoteJumpFrames;
 	coyoteSusTimer = coyoteSusFrames;
+	IgnoreOneWay = false
 	
 } else if (OnWall != 0) {
 	//image_xscale = OnWall;
@@ -142,11 +141,11 @@ if jumpHoldTimer > 0 {
 }
 
 //Dejar caer de la plataforma OneWay
-if downKey && jumpKeyPressed && actualPlatform != noone && !place_meeting(x, y + 1, obj_wallParent) && !Isclimbing {
+if downKey && jumpKeyPressed && myFloorPlat != noone && !place_meeting(x, y + 1, obj_wallParent) && !Isclimbing {
 	
 	ySpd += 2
 	IgnoreOneWay = true
-	actualPlatform = noone
+	myFloorPlat = noone
 	
 }
 
@@ -169,7 +168,7 @@ if Isclimbing {
 //Colisiones en Y
 
 //Collision de Plataformas Movible
-var _movingPlatformY = instance_place(x, y + max(1, ySpd), obj_movingPlatform)
+/*var _movingPlatformY = instance_place(x, y + max(1, ySpd), obj_movingPlatform)
 
 if _movingPlatformY != noone && bbox_bottom <= _movingPlatformY.bbox_top + 1 {
 	if ySpd > 0 {
@@ -180,7 +179,7 @@ if _movingPlatformY != noone && bbox_bottom <= _movingPlatformY.bbox_top + 1 {
 	}
 		x += _movingPlatformY.moveX
 		y += _movingPlatformY.moveY
-}
+}*/
 
 if place_meeting(x, y + ySpd, obj_wallParent) {
 	
@@ -212,15 +211,15 @@ if ySpd >= 0 && !IgnoreOneWay {
 				}
 				
 				ySpd = 0;
-				actualPlatform = _plat
+				myFloorPlat = _plat
 				
 			}
 		}
 	}
 }
 
-if instance_exists(actualPlatform) {
-	if actualPlatform.object_index == obj_hotFloor {
+if instance_exists(myFloorPlat) {
+	if myFloorPlat.object_index == obj_hotFloor {
 			
 		if place_meeting(x, y + 1, obj_hotFloor) {
 			if hotTimer < hotTime {
@@ -246,11 +245,11 @@ if !IgnoreOneWay {
 	var _plat_check = instance_place(x, y + 1, obj_semiSolidPlat)
 	
 	if _plat_check != noone && bbox_bottom <= _plat_check.bbox_top + 1 {
-		actualPlatform = _plat_check
-	} else if !place_meeting(x, y + 1, obj_wallParent) { actualPlatform = noone }
+		myFloorPlat = _plat_check
+	} else if !place_meeting(x, y + 1, obj_wallParent) { myFloorPlat = noone }
 	
-	if _plat_check != noone && bbox_bottom <= _plat_check.bbox_top + 1 { onOneWay = true } 
-	else { onOneWay = false }
+	if _plat_check != noone && bbox_bottom <= _plat_check.bbox_top + 1 { onSemiSolid = true } 
+	else { onSemiSolid = false }
 
 }
 
