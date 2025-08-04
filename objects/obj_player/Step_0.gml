@@ -22,8 +22,8 @@ var moveDir = rightKey - leftKey;
 //Bloquear el movimiento del personaje si la variable es igual o menor a 0
 if movementTimerLock <= 0 {	
 	
-	/*Esto hace que mire hacia otro lado el sprite
-	if (moveDir != 0) { image_xscale = moveDir }*/
+	//Esto hace que mire hacia otro lado el sprite
+	if (moveDir != 0) { image_xscale = moveDir * 3}
 
 	xSpd = moveDir * spd;
 }
@@ -254,3 +254,19 @@ if !IgnoreOneWay {
 }
 
 y += ySpd
+
+switch animState {
+	case "idle":
+		if moveDir != 0 {
+			animState = "walk"
+			sprite_index = spr_playerWalk
+			}
+		break
+		
+	case "walk":
+		if moveDir == 0 {
+			animState = "idle"
+			sprite_index = spr_playerIdle
+		}
+		break
+}

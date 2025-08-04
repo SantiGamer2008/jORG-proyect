@@ -17,6 +17,7 @@ global.rockyFollow = false
 
 //Collectibles
 global.collect1 = false
+global.collect2 = false
 
 function newGame(_file) {
 	if file_exists(_file) {

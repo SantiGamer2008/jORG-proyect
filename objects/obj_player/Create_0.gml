@@ -56,3 +56,5 @@ limitXSpdClimbingRight = 5
 canMove = true
 
 dead = false
+
+animState = "idle"

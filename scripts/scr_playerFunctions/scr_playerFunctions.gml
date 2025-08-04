@@ -44,3 +44,17 @@ function GetControls()
 		jumpKeyBuffered = 0
 	}
 }
+
+function GetMenuControls() {
+	pauseKey = keyboard_check_pressed(vk_escape) + gamepad_button_check_pressed(0, gp_start)
+	pauseKey = clamp(pauseKey, 0, 1)
+	
+	downKey = keyboard_check_pressed(vk_down) + gamepad_button_check_pressed(0, gp_padd) + keyboard_check_pressed(ord("S"))
+	downKey = clamp(downKey, 0, 1)
+
+	upKey = keyboard_check_pressed(vk_up) + gamepad_button_check_pressed(0, gp_padu) + keyboard_check_pressed(ord("W"))
+	upKey = clamp(upKey, 0, 1)
+
+	acceptKey = keyboard_check_pressed(vk_space) + gamepad_button_check_pressed(0, gp_face1) + keyboard_check_pressed(vk_enter)
+	acceptKey = clamp(acceptKey, 0, 1)
+}

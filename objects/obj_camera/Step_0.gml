@@ -1,10 +1,5 @@
 if instance_exists(obj_testingCamera) exit
 
-// Fullscreen toggle
-if keyboard_check_pressed(vk_f11) {
-    window_set_fullscreen(!window_get_fullscreen());
-}
-
 // Si no existe el jugador, no se ejecuta
 if !instance_exists(obj_player) exit;
 

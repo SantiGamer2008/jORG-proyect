@@ -7,6 +7,7 @@ op_space = 75
 pos = 0
 
 saveFile = "saveSlot0.ini"
+inTransition = false
 
 //Main Menu
 option[0, 0] = "Start Game"

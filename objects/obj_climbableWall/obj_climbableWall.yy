@@ -34,5 +34,5 @@
     "path":"sprites/spr_climbableWall/spr_climbableWall.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }

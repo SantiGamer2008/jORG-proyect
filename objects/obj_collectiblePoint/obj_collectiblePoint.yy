@@ -32,5 +32,5 @@
     "path":"sprites/spr_collectiblePoint/spr_collectiblePoint.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }
