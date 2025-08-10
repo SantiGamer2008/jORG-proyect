@@ -2,8 +2,8 @@
   "$GMSound":"",
   "%Name":"Pause_Menu_sound",
   "audioGroupId":{
-    "name":"audiogroup_default",
-    "path":"audiogroups/audiogroup_default",
+    "name":"Music",
+    "path":"audiogroups/Music",
   },
   "bitDepth":1,
   "bitRate":192,
@@ -12,8 +12,8 @@
   "duration":17.309298,
   "name":"Pause_Menu_sound",
   "parent":{
-    "name":"Sonidos",
-    "path":"folders/Sonidos.yy",
+    "name":"Music",
+    "path":"folders/Sonidos/Music.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

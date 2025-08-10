@@ -13,7 +13,7 @@ global.lastCheckpointY = 0
 
 //Player
 global.loadPlayerPosition = false
-global.rockyFollow = false
+global.rockyFollow = true
 
 //Collectibles
 global.collect1 = false
@@ -26,7 +26,7 @@ function newGame(_file) {
 	
 	//Player
 	global.loadPlayerPosition = false
-	global.rockyFollow = false
+	global.rockyFollow = true
 	
 	//Checkpoint
 	global.lastCheckpointID = ""

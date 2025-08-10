@@ -1,0 +1,1 @@
+audio_play_sound(Menu_Sound2, 1, true)

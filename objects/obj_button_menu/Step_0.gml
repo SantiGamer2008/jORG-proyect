@@ -101,7 +101,7 @@ if !inTransition {
 				
 					//Nueva partida
 					case 0:
-						audio_play_sound(Pl_Start_sound, 5, false); // sonido de clic
+						audio_play_sound(startsound, 5, false, 1, 0.5); // sonido de clic
 
 						if (audio_is_playing(Menu_Sound2)) {
 						    audio_stop_sound(Menu_Sound2);
@@ -119,7 +119,7 @@ if !inTransition {
 				
 					//Cargar partida
 					case 1:
-						audio_play_sound(Pl_Start_sound, 5, false); // sonido de clic
+						audio_play_sound(startsound, 5, false, 1, 0.5); // sonido de clic
 
 						if (audio_is_playing(Menu_Sound2)) {
 						    audio_stop_sound(Menu_Sound2);

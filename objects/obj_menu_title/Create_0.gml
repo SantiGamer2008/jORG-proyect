@@ -5,6 +5,4 @@ center_y = 400; // Centro vertical
 
 alpha = 0; // Opacidad inicial
 
-if (!audio_is_playing(Menu_Sound2)) {
-    audio_play_sound(Menu_Sound2, 1, true); // loop
-}
+alarm[0] = 1

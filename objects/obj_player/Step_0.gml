@@ -10,10 +10,27 @@ movementTimerLock = max(movementTimerLock - 1, 0)
 
 //Si muere hacer esto
 if dead {
+	if !audio_is_playing(deathsound) {
+		audio_play_sound(deathsound, 5, false)
+	}
 	loadGame("saveSlot0.ini")
-	show_debug_message("Murio")
 }
 
+//Tirar a Rocky
+var rocky = collision_circle(x, y - 21 * 3, 150, obj_rocky, false, false)
+
+if rocky != noone { ammo = 1 } 
+else { ammo = 0 }
+
+if !obj_rocky.isThrowed {
+	if throwRocky {
+		if ammo >= 1 {
+			show_debug_message("Tiraste a rocky")
+			obj_rocky.isThrowed = true
+			ammo = 0
+		}
+	}
+}
 
 //Movimiento en X
 //Direccion
@@ -24,7 +41,7 @@ if movementTimerLock <= 0 {
 	
 	//Esto hace que mire hacia otro lado el sprite
 	if (moveDir != 0) { image_xscale = moveDir * 3}
-
+	
 	xSpd = moveDir * spd;
 }
 
@@ -190,7 +207,6 @@ if place_meeting(x, y + ySpd, obj_wallParent) {
 	/*Bonk Code XD 
 	(Cuando el personaje choca contra un techo deja de mantener el salto)*/
 	if ySpd < 0 {
-		
 		jumpHoldTimer = 0;
 	}
 	

@@ -55,6 +55,9 @@ limitXSpdClimbingRight = 5
 //Transicion de la camara
 canMove = true
 
+//Otros
 dead = false
+
+ammo = 1
 
 animState = "idle"

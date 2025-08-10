@@ -31,6 +31,9 @@ function GetControls()
 	grabKey = keyboard_check(vk_shift) + gamepad_button_check(0, gp_face3)
 	grabKey = clamp(grabKey, 0, 1)
 	
+	throwRocky = device_mouse_check_button_pressed(0, mb_left) + gamepad_button_check_pressed(0, gp_shoulderl) + keyboard_check_pressed(ord("C"))
+	throwRocky = clamp(throwRocky, 0, 1)
+	
 	//Salto Buffer
 	if jumpKeyPressed
 	{

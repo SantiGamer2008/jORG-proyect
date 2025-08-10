@@ -47,7 +47,7 @@ if pause {
 					//Continue
 					case 0:  
 						pause = false
-						Unpause(pauseSurface, Pl_jensenk_pauseoff, Pause_Menu_sound)
+						Unpause(pauseSurface, pauseoff, Pause_Menu_sound)
 						break
 	
 					//Settings
@@ -55,8 +55,11 @@ if pause {
 				
 					//Main Menu
 					case 2:
-						Unpause(pauseSurface, Pl_jensenk_pauseoff, Pause_Menu_sound)
+						audio_stop_all()
+						Unpause(pauseSurface, pauseoff, Pause_Menu_sound)
 						saveGame(saveFile)
+						pause = false
+						
 						room_goto(Menu_Room)
 						
 						break
@@ -136,9 +139,9 @@ if pauseKey {
 	menu_level = 0
 	
 	if pause {
-		Pause(Pl_jensenk_pauseon, Pause_Menu_sound)
+		Pause(pauseon, Pause_Menu_sound)
 	} else {
-		Unpause(pauseSurface, Pl_jensenk_pauseoff, Pause_Menu_sound)
+		Unpause(pauseSurface, pauseoff, Pause_Menu_sound)
 	}
 }
 

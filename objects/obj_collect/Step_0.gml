@@ -3,12 +3,12 @@ if grabbed {
 	
 	if target != noone {
 		
-		move_towards_point(target.x, target.y, spd)
+		move_towards_point(target.x - offsetX, target.y - offsetY, spd)
 		
-		if point_distance(x, y, target.x, target.y) < spd {
+		if point_distance(x, y, target.x - offsetX, target.y - offsetY) < spd {
 			
-			x = target.x 
-			y = target.y
+			x = target.x - offsetX
+			y = target.y - offsetY
 			
 			spd = 0
 			
