@@ -24,6 +24,7 @@ else { ammo = 0 }
 
 if !obj_rocky.isThrowed {
 	if throwRocky {
+		animState = "throw"
 		if ammo >= 1 {
 			show_debug_message("Tiraste a rocky")
 			obj_rocky.isThrowed = true
@@ -284,5 +285,8 @@ switch animState {
 			animState = "idle"
 			sprite_index = spr_playerIdle
 		}
+		break
+	case "throw": 
+		sprite_index = spr_playerThrow
 		break
 }

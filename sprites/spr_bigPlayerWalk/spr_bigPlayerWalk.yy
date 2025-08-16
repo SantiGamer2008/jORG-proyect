@@ -46,8 +46,8 @@
   },
   "origin":7,
   "parent":{
-    "name":"Sprites",
-    "path":"folders/Sprites.yy",
+    "name":"BIG",
+    "path":"folders/Sprites/Moony/BIG.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

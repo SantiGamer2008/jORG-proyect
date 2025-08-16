@@ -8,6 +8,8 @@ lookDirection = 1
 
 isThrowed = false
 
+booleanoXD = false
+
 //flotar
 baseY = y
 timer = 0
