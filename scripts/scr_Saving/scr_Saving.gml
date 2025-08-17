@@ -16,8 +16,8 @@ global.loadPlayerPosition = false
 global.rockyFollow = true
 
 //Collectibles
-global.collect1 = false
-global.collect2 = false
+global.collect1 = 0
+global.collect2 = 0
 
 function newGame(_file) {
 	if file_exists(_file) {

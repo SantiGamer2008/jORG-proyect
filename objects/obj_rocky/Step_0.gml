@@ -21,13 +21,13 @@ if global.rockyFollow {
 				booleanoXD = true
 			}
 			
-			x += 10 * lookDirection
 			spd = 10
-			y += 0
+			hspeed = 10 * lookDirection
 			
 			if place_meeting(x, y, obj_wallParent) || place_meeting(x, y, obj_spikes) {
 				isThrowed = false
 				booleanoXD = false
+				hspeed = 0
 			}
 			
 		} else {

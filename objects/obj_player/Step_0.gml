@@ -74,14 +74,6 @@ if place_meeting(x + xSpd, y, obj_wallParent) {
 	xSpd = 0;
 }
 
-/*var _movingPlatformX = instance_place(x + xSpd, y, obj_movingPlatform)
-
-if _movingPlatformX != noone && bbox_left <= _movingPlatformX.bbox_right + 1 {
-		xSpd += _movingPlatformX.moveX
-} else if _movingPlatformX != noone && bbox_right >= _movingPlatformX.bbox_left - 1 {
-		xSpd += _movingPlatformX.moveX
-}*/
-
 x += xSpd;
 
 //Movimiento en Y
@@ -89,6 +81,7 @@ x += xSpd;
 if coyoteSusTimer > 0 {
 	
 	coyoteSusTimer--;
+	
 } else if (OnWall != 0) { ySpd = min(ySpd + 1, 5) }
 
 else {
@@ -107,7 +100,7 @@ if OnGround {
 	IgnoreOneWay = false
 	
 } else if (OnWall != 0) {
-	//image_xscale = OnWall;
+	image_xscale = OnWall * 3;
 	
 } else {
 	coyoteJumpTimer--;
@@ -184,21 +177,6 @@ if Isclimbing {
 	
 }
 //Colisiones en Y
-
-//Collision de Plataformas Movible
-/*var _movingPlatformY = instance_place(x, y + max(1, ySpd), obj_movingPlatform)
-
-if _movingPlatformY != noone && bbox_bottom <= _movingPlatformY.bbox_top + 1 {
-	if ySpd > 0 {
-		while !place_meeting(x, y + sign(ySpd), obj_movingPlatform) {
-			y += sign(ySpd)
-		}
-		ySpd = 0
-	}
-		x += _movingPlatformY.moveX
-		y += _movingPlatformY.moveY
-}*/
-
 if place_meeting(x, y + ySpd, obj_wallParent) {
 	
 	while (!place_meeting(x, y  + sign(ySpd), obj_wallParent)) {
@@ -277,7 +255,23 @@ switch animState {
 		if moveDir != 0 {
 			animState = "walk"
 			sprite_index = spr_playerWalk
-			}
+		}
+		
+		if ySpd != 0 {
+			animState = "jump"
+			sprite_index = spr_playerJump
+		}
+		
+		if OnWall != 0 && !OnGround  {
+			animState = "wall"
+			sprite_index = spr_playerWall
+		}
+		
+		if Isclimbing {
+			animState = "climbing"
+			sprite_index = spr_playerClimbing
+		}
+		
 		break
 		
 	case "walk":
@@ -285,8 +279,76 @@ switch animState {
 			animState = "idle"
 			sprite_index = spr_playerIdle
 		}
+		
+		if ySpd != 0 {
+			animState = "jump"
+			sprite_index = spr_playerJump
+		}
+		
+		if OnWall != 0 && !OnGround {
+			animState = "wall"
+			sprite_index = spr_playerWall
+		}
+		
+		if Isclimbing {
+			animState = "climbing"
+			sprite_index = spr_playerClimbing
+		}
+		
 		break
+		
 	case "throw": 
 		sprite_index = spr_playerThrow
+		break
+	
+	case "jump":
+		if OnGround {
+			animState = "idle"
+			sprite_index = spr_playerIdle
+		}
+		
+		if OnWall != 0 {
+			animState = "wall"
+			sprite_index = spr_playerWall
+		}
+		
+		if Isclimbing {
+			animState = "climbing"
+			sprite_index = spr_playerClimbing
+		}
+		break
+	
+	case "wall":
+		if OnWall = 0 && ySpd = 0 {
+			animState = "idle"
+			sprite_index = spr_playerIdle
+		} else if OnWall = 0 && ySpd < 0 {
+			animState = "jump" 
+			sprite_index = spr_playerJump
+		}
+		
+		if movementTimerLock > 0 {
+			sprite_index = spr_playerWallJump
+		} 
+		
+		if OnGround {
+			animState = "idle"
+			sprite_index = spr_playerIdle
+		}
+		
+		if Isclimbing {
+			animState = "climbing"
+			sprite_index = spr_playerClimbing
+		}
+		break
+	
+	case "climbing":
+		if !Isclimbing && ySpd = 0 {
+			animState = "idle"
+			sprite_index = spr_playerIdle
+		} else if !Isclimbing && ySpd != 0 {
+			animState = "jump"
+			sprite_index = spr_playerJump
+		}
 		break
 }

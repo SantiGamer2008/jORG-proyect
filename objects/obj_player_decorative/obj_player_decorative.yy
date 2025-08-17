@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_player_decorative",
-    "path":"sprites/spr_player_decorative/spr_player_decorative.yy",
+    "name":"spr_rocky",
+    "path":"sprites/spr_rocky/spr_rocky.yy",
   },
   "spriteMaskId":null,
   "visible":true,

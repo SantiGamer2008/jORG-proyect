@@ -1,10 +1,10 @@
 switch collect {
 	case 0:
-		global.collect1 = true	
+		global.collect1 = 1	
 		break
 	
 	case 1: 
-		global.collect2 = true
+		global.collect2 = 1
 		break
 }
 
