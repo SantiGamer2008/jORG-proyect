@@ -55,6 +55,7 @@
   "resources":[
     {"id":{"name":"Menu_Font","path":"fonts/Menu_Font/Menu_Font.yy",},},
     {"id":{"name":"obj_bigPlayer","path":"objects/obj_bigPlayer/obj_bigPlayer.yy",},},
+    {"id":{"name":"obj_blackHole","path":"objects/obj_blackHole/obj_blackHole.yy",},},
     {"id":{"name":"obj_button_menu","path":"objects/obj_button_menu/obj_button_menu.yy",},},
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},},
     {"id":{"name":"obj_checkpoint","path":"objects/obj_checkpoint/obj_checkpoint.yy",},},
@@ -115,6 +116,7 @@
     {"id":{"name":"spr_bigPlayerIdle","path":"sprites/spr_bigPlayerIdle/spr_bigPlayerIdle.yy",},},
     {"id":{"name":"spr_bigPlayerStatingWalk","path":"sprites/spr_bigPlayerStatingWalk/spr_bigPlayerStatingWalk.yy",},},
     {"id":{"name":"spr_bigPlayerWalk","path":"sprites/spr_bigPlayerWalk/spr_bigPlayerWalk.yy",},},
+    {"id":{"name":"spr_blackHole","path":"sprites/spr_blackHole/spr_blackHole.yy",},},
     {"id":{"name":"spr_BlackSquare","path":"sprites/spr_BlackSquare/spr_BlackSquare.yy",},},
     {"id":{"name":"spr_button","path":"sprites/spr_button/spr_button.yy",},},
     {"id":{"name":"spr_checkpoint","path":"sprites/spr_checkpoint/spr_checkpoint.yy",},},

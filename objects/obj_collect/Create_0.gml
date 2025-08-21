@@ -4,6 +4,9 @@ grabbed = false
 
 spd = 10
 
+offsetX = 50
+offsetY = 128
+
 sound = false
 
 switch collect {

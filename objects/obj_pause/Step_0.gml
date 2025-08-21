@@ -10,7 +10,7 @@ if keyboard_check_pressed(vk_backspace) && !pause {
 	game_restart()
 }
 
-windowFocus = window_has_focus()
+var windowFocus = window_has_focus()
 
 //Si la instancia obj no pausa existe devolver y no hacer nada
 if instance_exists(obj_noPausa) exit

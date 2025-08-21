@@ -57,8 +57,6 @@ function saveGame(_file){
 	
 	ini_close()
 	
-	show_debug_message("Se a guardado la partida")
-	
 }
 
 function loadGame(_file){
@@ -75,6 +73,7 @@ function loadGame(_file){
 		
 		//Collectibles
 		global.collect1 = ini_read_real("collectibles", "1", global.collect1)
+		global.collect2 = ini_read_real("collectibles", "2", global.collect2)
 		
 		//World
 		global.lastCheckpointID = ini_read_string("world", "lastCheckpoint", "")
@@ -85,9 +84,9 @@ function loadGame(_file){
 		
 		if _room != noone { room_goto(_room) }
 		
-		global.loadPlayerPosition = true
-		
-		show_debug_message("Se cargo con exito la partida")
+		if _room != LevelSelect_Room {
+			global.loadPlayerPosition = true
+		}
 		
 	} else { show_debug_message("No se encontre una partida guardada") }
 }

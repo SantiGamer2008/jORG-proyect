@@ -50,14 +50,10 @@ if !inTransition {
 					case 0: menu_level = 2 break
 					
 					//Controls
-					case 1:
-				
-						break
+					case 1: menu_level = 4 break
 				
 					//Sound
-					case 2:
-					
-						break
+					case 2: menu_level = 5 break
 				
 					//Back Main Menu
 					case 3: menu_level = 0 break
@@ -69,9 +65,9 @@ if !inTransition {
 			case 2:
 				switch pos {
 				
-					//Window Size
+					//Fullscreen
 					case 0:
-							
+						
 						break
 						
 					//Windows Focus
@@ -140,6 +136,36 @@ if !inTransition {
 				
 				}
 				break
+			
+	//------------------Controls Menu------------------
+			case 4:
+				switch pos {
+					case 0:
+						break
+						
+					case 1:
+						break
+						
+					case 2:
+						break
+					
+					case 3:
+						break
+						
+					case 4: menu_level = 1 break
+				}
+	
+	//------------------Sound Menu------------------
+			case 5:
+				switch pos {
+					case 0:
+						break
+						
+					case 1:
+						break
+					
+					case 2: menu_level = 1 break
+				}
 		}
 			//Set position back
 			if _sml != menu_level { pos = 0 }

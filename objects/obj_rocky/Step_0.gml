@@ -23,6 +23,7 @@ if global.rockyFollow {
 			
 			spd = 10
 			hspeed = 10 * lookDirection
+			vspeed = 0
 			
 			if place_meeting(x, y, obj_wallParent) || place_meeting(x, y, obj_spikes) {
 				isThrowed = false

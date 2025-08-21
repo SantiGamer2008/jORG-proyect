@@ -21,7 +21,7 @@ option[1, 2] = "Sound"
 option[1, 3] = "Back"
 
 //Windows Settings
-option[2, 0] = "Window Size"
+option[2, 0] = "Fullscreen"
 option[2, 1] = "Not Pause On Unfocus"
 option[2, 2] = "Back"
 
@@ -30,6 +30,17 @@ option[3, 0] = "New Game"
 option[3, 1] = "Load Game"
 option[3, 2] = "Back"
 
+//Controls Menu 
+option[4, 0] = "Move Left - " + "Left Arrow or A"
+option[4, 1] = "Move Right - " + "Right Arrow or D"
+option[4, 2] = "Jump - " + "Space"
+option[4, 3] = "Throw - " + "C or Left Mouse Click"
+option[4, 4] = "Back"
+
+//Sound Menu
+option[5, 0] = "SFX - " + "100%"
+option[5, 1] = "Music - " + "100%"
+option[5, 2] = "Back"
 
 op_length = 0
 menu_level = 0
