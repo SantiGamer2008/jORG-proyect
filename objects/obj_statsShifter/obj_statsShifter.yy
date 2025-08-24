@@ -30,6 +30,7 @@
     {"$GMObjectProperty":"v1","%Name":"limitYspd","filters":[],"listItems":[],"multiselect":false,"name":"limitYspd","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"20","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"jumpForce","filters":[],"listItems":[],"multiselect":false,"name":"jumpForce","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"-14","varType":0,},
     {"$GMObjectProperty":"v1","%Name":"jumpHoldFrames","filters":[],"listItems":[],"multiselect":false,"name":"jumpHoldFrames","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"20","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"canThrow","filters":[],"listItems":[],"multiselect":false,"name":"canThrow","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

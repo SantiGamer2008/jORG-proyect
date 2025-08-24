@@ -60,4 +60,6 @@ dead = false
 
 ammo = 1
 
+canThrow = false
+
 animState = "idle"

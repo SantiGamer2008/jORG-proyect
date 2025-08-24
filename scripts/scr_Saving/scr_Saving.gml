@@ -3,7 +3,8 @@ global.rooms = [
 	Menu_Room,
 	LevelSelect_Room,
 	Test_Room,
-	Test_Room2
+	Test_Room2,
+	Level1_Room
 ]
 
 //Checkpoint

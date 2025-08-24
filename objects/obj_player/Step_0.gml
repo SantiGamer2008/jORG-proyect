@@ -17,17 +17,21 @@ if dead {
 }
 
 //Tirar a Rocky
-var rocky = collision_circle(x, y - 21 * 3, 150, obj_rocky, false, false)
+if canThrow {
+	var rocky = collision_circle(x, y - 21 * 3, 150, obj_rocky, false, false)
 
-if rocky != noone { ammo = 1 } 
-else { ammo = 0 }
+	if rocky != noone { ammo = 1 } 
+	else { ammo = 0 }
 
-if !obj_rocky.isThrowed {
-	if throwRocky {
-		animState = "throw"
-		if ammo >= 1 {
-			obj_rocky.isThrowed = true
-			ammo = 0
+	if instance_exists(obj_rocky) {
+		if !obj_rocky.isThrowed {
+			if throwRocky {
+				animState = "throw"
+				if ammo >= 1 {
+					obj_rocky.isThrowed = true
+					ammo = 0
+				}
+			}
 		}
 	}
 }
